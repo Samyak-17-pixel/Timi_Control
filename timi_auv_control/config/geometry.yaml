@@ -1,0 +1,41 @@
+# Body frame: +X forward, +Y starboard, +Z down (NED body).
+# Origin: geometric center / COG (m). Distances from engineering drawing.
+# Direction: unit vector of force ON THE VEHICLE when thrust is positive (reaction).
+
+d: 0.7071067811865476  # 1/sqrt(2)
+
+thruster_order:
+  - stfr
+  - stbk
+  - psfr
+  - psbk
+  - hstfr
+  - hstbk
+  - hpsfr
+  - hpsbk
+
+thrusters:
+  stfr:
+    position_body_m: [0.450, 0.22525, 0.0]
+    direction_body: [0.7071067811865476, 0.7071067811865476, 0.0]
+  stbk:
+    position_body_m: [-0.450, 0.22525, 0.0]
+    direction_body: [0.7071067811865476, -0.7071067811865476, 0.0]
+  psfr:
+    position_body_m: [0.450, -0.22525, 0.0]
+    direction_body: [0.7071067811865476, -0.7071067811865476, 0.0]
+  psbk:
+    position_body_m: [-0.450, -0.22525, 0.0]
+    direction_body: [0.7071067811865476, 0.7071067811865476, 0.0]
+  hstfr:
+    position_body_m: [0.142, 0.168, 0.0]
+    direction_body: [0.0, 0.0, -1.0]
+  hstbk:
+    position_body_m: [-0.142, 0.168, 0.0]
+    direction_body: [0.0, 0.0, -1.0]
+  hpsfr:
+    position_body_m: [0.142, -0.168, 0.0]
+    direction_body: [0.0, 0.0, -1.0]
+  hpsbk:
+    position_body_m: [-0.142, -0.168, 0.0]
+    direction_body: [0.0, 0.0, -1.0]

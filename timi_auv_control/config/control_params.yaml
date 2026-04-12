@@ -1,0 +1,35 @@
+# Global tuning — shared across missions (see README).
+
+vehicle:
+  mass_kg: 40.0
+  # Placeholder inertias (unknown) — tune gains in pool; optional CAD values later
+  Ixx: 2.0
+  Iyy: 2.0
+  Izz: 2.0
+
+position_loop:
+  kp: [0.25, 0.25, 0.35]
+  vel_ned_max: 0.45
+
+velocity_loop:
+  kp: [120.0, 120.0, 140.0]
+  ki: [8.0, 8.0, 10.0]
+  kd: [25.0, 25.0, 30.0]
+  integral_limit: [80.0, 80.0, 90.0]
+
+attitude_loop:
+  kp: [45.0, 45.0, 35.0]
+  kd: [18.0, 18.0, 15.0]
+
+limits:
+  force_max_n: 220.0
+  moment_max_nm: 45.0
+
+thrusters:
+  # Blue Robotics T200 @ 16 V (typical published max)
+  forward_max_thrust_n: 51.5
+  reverse_max_thrust_n: 40.2
+  force_limit_n: 55.0
+  pwm_min: 1200
+  pwm_neutral: 1500
+  pwm_max: 1800

@@ -1,0 +1,10 @@
+# Pass through intermediate waypoints; stop inside acceptance radius of last.
+
+waypoints_ned:
+  - [0.0, 0.0, 5.0]
+  - [2.0, 0.0, 5.0]
+  - [2.0, 2.0, 6.0]
+acceptance_radius_m: 0.6
+cruise_speed_m_s: 0.3
+yaw_mode: path
+fixed_yaw_deg: 0.0

@@ -1,0 +1,10 @@
+# Station keeping / hover — hold NED pose.
+# duration_s: omit or null for indefinite hold.
+# Set duration_s: 120.0 to finish after 120 seconds (then node publishes neutral PWM).
+
+position_ned: [0.0, 0.0, 5.0]
+attitude_deg:
+  roll: 0.0
+  pitch: 0.0
+  yaw: 0.0
+duration_s: null
