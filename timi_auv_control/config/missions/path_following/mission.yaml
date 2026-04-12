@@ -1,0 +1,17 @@
+# 3D spline through waypoints; trapezoidal speed along path unless total_time_s set.
+
+waypoints_ned:
+  - [0.0, 0.0, 5.0]
+  - [1.0, 0.5, 5.2]
+  - [2.0, 1.0, 5.5]
+  - [3.0, 0.0, 5.0]
+
+trapezoid:
+  accel_m_s2: 0.06
+  max_speed_m_s: 0.35
+  decel_m_s2: 0.06
+
+total_time_s: null
+
+yaw_mode: tangent_h
+yaw_fixed_deg: 0.0
