@@ -1,4 +1,4 @@
-# Timi_Control — complete workspace manual
+# Timi_Control 
 
 This document explains **this entire folder from scratch**: what it is, how the two software trees relate, what every file is for, how data flows, how to build and run, and what is *not* in this repository.
 
