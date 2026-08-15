@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>qualification_gate_control</name>
+  <version>0.1.0</version>
+  <description>Qualification gate mission (state machine, cmd_vel, depth setpoints).</description>
+  <maintainer email="na22b018@smail.iitm.ac.in">aatmaj</maintainer>
+  <license>Apache-2.0</license>
+
+  <depend>rclpy</depend>
+  <depend>qualification_gate_interfaces</depend>
+  <depend>geometry_msgs</depend>
+  <depend>std_msgs</depend>
+  <depend>std_srvs</depend>
+  <depend>dvl_msgs</depend>
+  <depend>sbg_driver</depend>
+
+  <exec_depend>launch_ros</exec_depend>
+  <exec_depend>ament_index_python</exec_depend>
+  <exec_depend>qualification_gate_detection</exec_depend>
+  <exec_depend>auv_depth_control</exec_depend>
+  <exec_depend>auv_3d_control</exec_depend>
+  <exec_depend>dvl_to_odom_bridge</exec_depend>
+
+  <test_depend>ament_flake8</test_depend>
+  <test_depend>python3-pytest</test_depend>
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>
