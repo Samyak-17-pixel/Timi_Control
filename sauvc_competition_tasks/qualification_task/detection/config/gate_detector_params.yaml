@@ -1,0 +1,39 @@
+gate_detector:
+  ros__parameters:
+    image_topic: "/front/image_raw"
+    gate_topic: "/gate/detection"
+    mask_topic: "/gate/mask"
+    publish_debug_image: false
+    publish_mask_image: true
+    debug_image_topic: "/gate/debug_image"
+    publish_rate_hz: 10.0
+
+    # HSV red mask (foreground/background separation like reference pipeline).
+    use_color_boost: true
+    hsv_low1: [0, 70, 60]
+    hsv_high1: [15, 255, 255]
+    hsv_low2: [160, 70, 60]
+    hsv_high2: [180, 255, 255]
+    mask_open_kernel: 3
+    mask_close_kernel: 7
+    mask_blur_kernel: 5
+
+    # Geometry detection runs over masked image.
+    blur_kernel: 5
+    canny_low: 45
+    canny_high: 130
+    hough_threshold: 45
+    hough_min_line_length: 90
+    hough_max_line_gap: 18
+
+    roi_top_frac: 0.12
+    max_vertical_tilt_deg: 14.0
+    min_vertical_length_px: 130.0
+    min_y_overlap_px: 90.0
+    min_pole_separation_px: 80.0
+    max_pole_separation_frac: 0.75
+    center_bias_weight: 0.08
+
+    # Recommended strictness: require stable center for N frames.
+    stable_center_frames: 3
+

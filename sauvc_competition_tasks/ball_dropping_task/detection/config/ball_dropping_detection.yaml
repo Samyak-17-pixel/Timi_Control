@@ -1,0 +1,78 @@
+front_drum_detector:
+  ros__parameters:
+    image_topic: "/front/image_raw"
+    publish_debug_image: true
+    publish_rate_hz: 10.0
+    image_width: 640.0
+    image_height: 480.0
+
+    blur_kernel: 5
+    canny_low: 40
+    canny_high: 120
+    contour_min_area: 900.0
+    contour_max_area_frac: 0.65
+    candidate_min_w: 28.0
+    candidate_min_h: 18.0
+    candidate_min_aspect: 0.45
+    candidate_max_aspect: 3.2
+
+    blue_h_low: 85
+    blue_h_high: 145
+    blue_s_low: 45
+    blue_v_low: 35
+    red1_h_low: 0
+    red1_h_high: 15
+    red2_h_low: 160
+    red2_h_high: 179
+    red_s_low: 45
+    red_v_low: 35
+    min_blue_score: 0.08
+    min_red_score: 0.08
+    contrast_ring_scale: 1.35
+    color_contrast_weight: 2.2
+    color_purity_weight: 1.1
+    scene_expected_blue: 1
+    scene_expected_red: 3
+    scene_count_penalty: 0.06
+
+    distance_px_ref: 220.0
+    distance_m_ref: 1.5
+    distance_power: 1.0
+
+    lock_confidence_drop: 0.35
+    lock_timeout_sec: 2.0
+
+bottom_drum_detector:
+  ros__parameters:
+    image_topic: "/bottom/image_raw"
+    publish_debug_image: true
+    publish_rate_hz: 10.0
+    image_width: 640.0
+    image_height: 480.0
+
+    blue_h_low: 85
+    blue_h_high: 145
+    blue_s_low: 45
+    blue_v_low: 35
+    red1_h_low: 0
+    red1_h_high: 15
+    red2_h_low: 160
+    red2_h_high: 179
+    red_s_low: 45
+    red_v_low: 35
+    open_kernel: 5
+    close_kernel: 9
+    min_area_px: 450.0
+    min_circularity: 0.25
+    align_tol_px: 14.0
+    stable_frames_required: 3
+    ema_alpha: 0.45
+
+drum_detection_fusion:
+  ros__parameters:
+    publish_rate_hz: 10.0
+    prefer_bottom_min_conf: 0.25
+    front_min_conf: 0.20
+    bottom_timeout_sec: 1.0
+    front_timeout_sec: 1.0
+

@@ -1,0 +1,53 @@
+# Pressure-primary depth PID. Depth increases downward (pressure /auv/depth).
+
+depth_controller:
+  ros__parameters:
+    depth_topic: "/auv/depth"
+    ping_topic: "/ping1d/data"
+    heave_cmd_topic: "/control/heave_cmd"
+
+    target_depth_m: 1.5
+
+    kp: 0.8
+    ki: 0.0
+    kd: 0.17
+    integral_limit: 0.80
+    max_heave_cmd: 0.6
+    min_heave_cmd: -0.6
+    output_sign: -1.0
+    heave_pwm_neutral: 1500.0
+    heave_pwm_per_unit: 700.0
+
+    depth_derivative_lp_alpha: 0.35
+    max_depth_dt_sec: 2.0
+
+    use_ping_guard: false
+    min_ping_valid_m: 0.12
+    max_ping_valid_m: 8.0
+    min_clearance_ping_m: 0.28
+    ping_guard_gain: 1.5
+    ping_stale_sec: 3.0
+
+    reset_integral_on_arm: true
+    enable_debug_logs: false
+
+    mission_target_depth_topic: "/qualification/mission/target_depth"
+    # 0 = latch last mission setpoint (no timeout -> no fall back to target_depth_m mid-mission).
+    mission_target_stale_sec: 0.0
+
+    auto_arm_on_start: true
+
+cmd_vel_3d_merge:
+  ros__parameters:
+    cmd_vel_2d_topic: "/control/cmd_vel"
+    heave_cmd_topic: "/control/heave_cmd"
+    cmd_vel_3d_topic: "/control/cmd_vel_3d"
+    publish_rate_hz: 20.0
+    heave_pwm_neutral: 1500.0
+    heave_pwm_per_unit: 700.0
+    # 0 disables timeout. Set > 0 to enforce mission time limit from node startup.
+    # Keep disabled here so gate_mission's mission_timeout_sec is the single mission time limit.
+    mission_duration_sec: 0.0
+    depth_arm_service: "/depth_controller/arm"
+    on_mission_expire_disarm_depth: true
+

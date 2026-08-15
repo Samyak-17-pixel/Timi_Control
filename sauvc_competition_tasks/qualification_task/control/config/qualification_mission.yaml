@@ -1,0 +1,72 @@
+# Qualification gate mission - parameters for gate_mission node.
+gate_mission:
+  ros__parameters:
+    cmd_vel_topic: "/control/cmd_vel"
+    gate_topic: "/gate/detection"
+    dvl_topic: "/dvl/position"
+    status_topic: "/qualification/mission/status"
+    depth_topic: "/auv/depth"
+
+    # Depth below surface (m), positive downward.
+    mission_target_depth_m: -0.140
+    mission_target_depth_topic: "/qualification/mission/target_depth"
+    publish_mission_target_depth: true
+    skip_depth_acquisition: false
+    depth_acquire_tolerance_m: 0.10
+    depth_acquire_hold_sec: 5.0
+    depth_acquire_hold_frames: 20
+    depth_acquire_timeout_sec: 120.0
+
+    sbg_imu_topic: "/sbg/imu_data"
+    use_sbg_imu_turn_damping: true
+    turn_yaw_kd_imu: 0.35
+    turn_imu_gyro_z_sign: 1.0
+    use_sbg_imu_vision_yaw_damping: true
+    align_yaw_kd_imu: 0.12
+    align_imu_gyro_z_sign: 1.0
+
+    surge_approach_m_s: 0.5
+    surge_align_m_s: 0.25
+    surge_pass_m_s: 0.5
+    surge_return_m_s: 0.5
+
+    post_gate_forward_m: 3.0
+    post_second_pass_forward_m: 5.0
+    surface_depth_m: 0.12
+    surface_hold_sec: 8.0
+
+    dvl_yaw_in_degrees: false
+    dvl_use_horizontal_distance: true
+
+    camera_image_width_px: 640.0
+    align_deadband_px: 18.0
+    align_fine_deadband_px: 8.0
+    yaw_only_if_error_above_px: 22.0
+    kp_sway_per_px: 0.0012
+    kp_yaw_per_px: 0.003
+    max_sway_m_s: 0.28
+    max_yaw_rate_rad_s: 0.35
+    aligned_consecutive_frames: 4
+    one_pole_scan_angle_deg: 30.0
+    one_pole_scan_yaw_rate_rad_s: 0.30
+    one_pole_scan_yaw_kp: 1.4
+    one_pole_scan_done_err_rad: 0.10
+
+    turn_yaw_kp: 1.8
+    turn_yaw_max_rate_rad_s: 0.45
+    turn_done_err_rad: 0.12
+
+    approach_timeout_sec: 120.0
+    align_timeout_sec: 90.0
+    return_search_timeout_sec: 120.0
+    mission_start_delay_sec: 0.0
+    pass_timeout_sec: 0.0
+    # 0 disables global timeout. If > 0, mission forces SURFACE after this many seconds.
+    mission_timeout_sec: 180.0
+
+    # false: rely on depth_controller auto_arm_on_start in depth_control_default.yaml
+    arm_depth_on_start: false
+    depth_arm_service: "/depth_controller/arm"
+
+    control_rate_hz: 20.0
+
